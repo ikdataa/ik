@@ -3,109 +3,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home Page</title>
     <script src="js/jquery-3.5.1.js"></script>
     <style>
-        li {
-            font-size: 18px;
-        }
 
- 
-        #divv {
-            margin: 0 auto;
-            background-color: aquamarine;
-            height: auto;
-            width: 600px;
-            position: relative;
-        }
-        #hhhh{
-            position: relative;
-            
-        }
     </style>
 </head>
 <body>
 <div id="divv">
-    <input type="text" id="cccc" placeholder="输入关键字 区分大小写" value="">
-    <br>
-    <input type="button" value="区分大小写查找关键字" onclick="fff()">
-    <input id="hhhh" type="button" value="不区分大小写查找关键字" onclick="vvv()">
-    <br>
-    <div id="dddd"
-         style="border: cadetblue 2px solid;width: 300px;height: 180px;border-radius: 5px;margin-top: 12px;text-align: left;padding-left: 10px"></div>
+	<img src="../img/bg.png">
 </div>
 <script>
-    var str = ["Head First HTML与CSS", "JavaScript高级程序设计", "JavaScript DOM编程艺术", "高性能网站建设进阶指南", "高性能网站建设指南", "Web前端黑客技术揭秘	", "JavaScript权威指南", "精通CSS", "编写可维护的JavaScript	", "高性能JavaScript"]
-    var i = 0
-    //
-    // //区分大小写查找
-
-    $('#cccc').on('input', function () {
-        $('#dddd').html('')
-        var xxx = document.getElementById('cccc').value
-        var ptt = '/' + xxx + '/g'
-        if (ptt == '//g') {
-            $('#dddd').html('')
-        } else {
-            $('#dddd').html('')
-            ptt = eval(ptt)
-            for (i = 0; i < str.length; i++) {
-                if (ptt.test(str[i])) {
-                    $('#dddd').append('<li>' + str[i] + '</li>')
-                }
-            }
-        }
-    })
-
-    // $('#cccc').change(function () {
-    //     var xxx = document.getElementById('cccc').value
-    //     var ptt= '/' + xxx +'/g'
-    //     ptt=eval(ptt)
-    //     for (i = 0; i < str.length; i++) {
-    //         if (ptt.test(str[i])) {
-    //             var $p = '<li>' + str[i] + '</li>';
-    //             $('#dddd').append($p)
-    //         }
-    //     }
-    // })
-
-    // function fff() {
-    //     var xxx = document.getElementById('cccc').value
-    //     var ptt= '/' + xxx +'/g'
-    //     ptt=eval(ptt)
-    //     for (i = 0; i < str.length; i++) {
-    //         if (ptt.test(str[i])) {
-    //             var $p = '<li>' + str[i] + '</li>';
-    //             $('#dddd').append($p)
-    //         }
-    //     }
-    // }
-    //
-    // //不区分大小写查找
-    function vvv() {
-        var xxx = document.getElementById('cccc').value
-        var ptt = '/' + xxx + '/gi'
-        ptt = eval(ptt)
-        for (i = 0; i < str.length; i++) {
-            if (ptt.test(str[i])) {
-                var $p = '<li>' + str[i] + '</li>';
-                $('#dddd').append($p)
-            }
-        }
-    }
-
-    // var xxx=document.getElementById('cccc').value
-    // var ptt= '/' + xxx +'/g'
-    // ptt=eval(ptt)
-    // var nnn='csssdd'
-    // alert(ptt.test(nnn))
-    // document.write(str +'<br>')
-    // str = str.match(aaa);
-    // alert(str[0].toLowerCase().indexOf('css'))
-    // function fa() {
-    //     var xxx = document.getElementById('cccc').value
-    //     alert(xxx)
-    // }
 
 </script>
 </body>
