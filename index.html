@@ -3,18 +3,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home Page ttt </title>
+    <title>Home Page</title>
     <script src="js/jquery-3.5.1.js"></script>
     <style>
+        #bg{
+            width: 1280px;
+            height: 800px;
+        }
     </style>
 </head>
-<body>
+<body id="body">
 加载
 <div id="divv">
-	<img src="/img/bg.png">
+	<img src="/bg.png" id="bg">
 </div>
+<button onclick="ooo()"></button>
 <script>
-
+    function ooo() {
+        var aaa=screen.availHeight
+        alert(aaa)
+    }
 </script>
 </body>
 </html>
