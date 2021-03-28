@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
+    <title>CSS3字体效果</title>
     <script src="js/jquery-3.5.1.js"></script>
     <style>
         @font-face {
@@ -38,12 +37,17 @@
 <!--    <div><button onclick="ooo">获取网络时间</button></div>-->
 </div>
 <div class="istime">
-    <div class="istimein">
-        22:18
-    </div>
+    <div class="istimein"></div>
 </div>
 <script>
-
+    function whatstime() {
+        var aaa=document.getElementsByClassName('istimein')
+        alert(aaa[0].innerHTML)
+    }
+    onload = function() {
+        alert('ggg')
+        whatstime()
+    }
 </script>
 </body>
 </html>
