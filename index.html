@@ -6,24 +6,44 @@
     <title>Home Page</title>
     <script src="js/jquery-3.5.1.js"></script>
     <style>
-        #bg{
-            width: 1280px;
-            height: 800px;
-            border: cadetblue solid 3px;
+        @font-face {
+            font-family: 'Clipangle SemBd';
+            src: local('Clipangle SemiBold'), local('Clipangle-SemiBold'),
+            url('fonts/Clipangle-SemiBold.woff2') format('woff2'),
+            url('fonts/Clipangle-SemiBold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        body{
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+        }
+        .istime{
+            color: #FFFFFF;
+            font-size: 133px;
+            font-weight: 700;
+        }
+        .istimein{
+            color: #ffa767;
+            font-family: "Clipangle SemBd";
         }
     </style>
 </head>
-<body id="body">
-加载
-<div id="divv">
-	<img src="https://raw.githubusercontent.com/ikdataa/ik/main/bg.png" id="bg">
-</div>
-<button onclick="ooo()"></button>
+<body id="body" style="border: 0;margin: 0;padding: 0">
 <script>
-    function ooo() {
-        var aaa=screen.availHeight
-        alert(aaa)
-    }
+    document.body.style.backgroundImage="url(https://raw.githubusercontent.com/ikdataa/ik/main/bg.png)"
+</script>
+<div id="divv">
+<!--    <div><button onclick="ooo">获取网络时间</button></div>-->
+</div>
+<div class="istime">
+    <div class="istimein">
+        22:18
+    </div>
+</div>
+<script>
+
 </script>
 </body>
 </html>

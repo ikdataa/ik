@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Clipangle SemBd';
+    src: local('Clipangle SemiBold'), local('Clipangle-SemiBold'),
+        url('Clipangle-SemiBold.woff2') format('woff2'),
+        url('Clipangle-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
