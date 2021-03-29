@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CSS3字体效果</title>
-    <script src="js/jquery-3.5.1.js"></script>
+<!--    <script src="js/jquery-3.5.1.js"></script>-->
     <style>
         @font-face {
             font-family: 'Clipangle SemBd';
@@ -20,13 +20,39 @@
             background-repeat: no-repeat;
         }
         .istime{
-            color: #FFFFFF;
+            margin: 0 auto;
+            color: #737373;
             font-size: 133px;
             font-weight: 700;
+            height: 1.2em;
+            /*opacity: 0.4;*/
+            border-radius: 20px;
+            background-color: #737373;
+            width: 480px;
+            /*white-space: nowrap;*/
+            /*display: inline-block;*/
         }
         .istimein{
-            color: #ffa767;
+            color: #e3e9de;
+            /*display: inline-block;*/
             font-family: "Clipangle SemBd";
+            align-items: baseline;
+            /*text-align: center;*/
+            opacity: 1!important;
+            padding-left: 0.08em;
+
+        }
+        .istimein>div>font{
+            font-size: 0.7em;
+        }
+        .istimein>div>span {
+            font-size: 0.7em;
+            display: inline-block;
+            background: orange;
+            border-radius: 5px;
+            height: 10px;
+            margin-left: 0.17em;
+            align-self: center;
         }
     </style>
 </head>
@@ -38,15 +64,43 @@
 <!--    <div><button onclick="ooo">获取网络时间</button></div>-->
 </div>
 <div class="istime">
-    <div class="istimein"> 23:58 </div>
+    <div class="istimein"></div>
 </div>
 <script>
+    var xx=new Array(3)
     function whatstime() {
+        var date=new Date()
+        var hh=date.getHours()
+        var mm=date.getMinutes()
+        var ss=date.getSeconds()+1
         var aaa=document.getElementsByClassName('istimein')
-        //alert(aaa[0].innerHTML)
+        var bbb=document.getElementsByClassName('istimeinss')
+        setInterval(function () {
+            xx[0]=ss
+            xx[1]=mm
+            xx[2]=hh
+            for (i=0;i<3;i++) {
+                if (xx[i]<10) {
+                    xx[i]='0'+xx[i].toString()
+                }
+            }
+            aaa[0].innerHTML='<div>' + xx[2] + ':' + xx[1] + '<font>' + ':' + '</font>' + '<span>' + xx[0] + '</span>' + '</div>'
+            ss++
+            if (ss==60) {
+                ss=0
+                mm++
+            }
+            if (mm==60) {
+                mm=0
+                hh++
+            }
+            if (hh==24) {
+                hh=0
+            }
+        },1000)
     }
     onload = function() {
-        //alert('ggg')
+        // alert(hh  + ':' + mm + ':' + ss)
         whatstime()
     }
 </script>
