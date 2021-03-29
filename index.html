@@ -21,16 +21,15 @@
         }
         .istime{
             margin: 0 auto;
-            color: #737373;
+            /*color: ;*/
             font-size: 133px;
             font-weight: 700;
             height: 1.2em;
             /*opacity: 0.4;*/
             border-radius: 20px;
-            background-color: #737373;
-            width: 480px;
+            background-color: rgba(155,155,155,0.7);
+            width: 520px;
             /*white-space: nowrap;*/
-            /*display: inline-block;*/
         }
         .istimein{
             color: #e3e9de;
@@ -68,6 +67,13 @@
 </div>
 <script>
     var xx=new Array(3)
+    // yyy=2134
+    // yyy=yyy.toString()
+    // if (yyy.indexOf("1")) {
+    //     var aaa=document.getElementsByClassName('istimein')
+    //     zzz=yyy.charAt(1) + " " + yyy.charAt(2)
+    //     aaa[0].innerHTML='<div>' + '22' + ':' + '44' + '<font>' + ':' + '</font>' + '<span>' + zzz + '</span>' + '</div>'
+    // }
     function whatstime() {
         var date=new Date()
         var hh=date.getHours()
@@ -80,8 +86,9 @@
             xx[1]=mm
             xx[2]=hh
             for (i=0;i<3;i++) {
+                xx[i]=xx[i].toString()
                 if (xx[i]<10) {
-                    xx[i]='0'+xx[i].toString()
+                    xx[i]='0'+xx[i]
                 }
             }
             aaa[0].innerHTML='<div>' + xx[2] + ':' + xx[1] + '<font>' + ':' + '</font>' + '<span>' + xx[0] + '</span>' + '</div>'
