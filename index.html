@@ -1,0 +1,311 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3字体效果 从网络获取时间</title>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Clipangle SemBd';
+            src: local('Clipangle SemiBold'), local('Clipangle-SemiBold'),
+            url('fonts/Clipangle-SemiBold.woff2') format('woff2'),
+            url('fonts/Clipangle-SemiBold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: black;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-image: url("img/bg.png");
+        }
+        .istime{
+            width: 544px;
+            margin: 0 auto;
+            font-size: 133px;
+            font-weight: 700;
+            /*height: 1.2em;*/
+            border-radius: 20px;
+            background-color: rgba(155,155,155,0.7);
+        }
+        .istimein{
+            color: #e3e9de;
+            font-family: "Clipangle SemBd";
+            align-items: baseline;
+            /*opacity: 1!important;*/
+            margin-left: 0px;
+            /*margin-right: 10px;*/
+            position: relative;
+            font-size: 0;
+        }
+        .istimein>div {
+            display: inline-block;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            border: 0px;
+            /*height: 100px;*/
+            font-size: 150px;
+            text-align: center;
+            width: 86px;
+        }
+        .h1{
+            text-align: center;
+            /*background-color: #1A3168;*/
+            /*overflow: hidden;*/
+        }
+        .h2{
+            /*background-color: black;*/
+        }
+        .big{
+            /*background-color: cadetblue;*/
+            width: 36px!important;
+            font-size: 140px!important;
+            position: relative;
+            bottom: 20px;
+        }
+        .smal{
+            /*background-color: orange;*/
+            width: 22px!important;
+            font-size: 94px!important;
+            /*margin-left: 10px;*/
+            /*position: relative;*/
+            /*bottom: 1px;*/
+        }
+        .s1,.s2 {
+            width: 46px !important;
+            padding-right: 12px!important;
+            font-size: 103px!important;
+        }
+        .s1 {
+            background-color: orange;
+            height: 15px;
+            border-top-left-radius: 9px;
+            border-bottom-left-radius: 9px;
+        }
+        .s2{
+            background-color: orange;
+            height: 15px;
+            border-top-right-radius: 9px;
+            border-bottom-right-radius: 9px;
+        }
+    </style>
+</head>
+<body style="border: 0;margin: 0;padding">
+<div class="istime">
+    <div class="istimein">
+        <div class="h1">{{ h1 }}</div>
+        <div class="h2">{{ h2 }}</div>
+        <div class="big">:</div>
+        <div class="m1">{{ m1 }}</div>
+        <div class="m2">{{ m2 }}</div>
+        <div class="smal">:</div>
+        <div class="s1">{{ s1 }}</div>
+        <div class="s2">{{ s2 }}</div>
+    </div>
+</div>
+<!--<button id="btn">{{ innc }}</button>-->
+<!--<div id="div1" style="color: #FFFFFF!important;"></div>-->
+</body>
+<script>
+    // var xxx=new Vue({
+    //     el:'#btn',
+    //     data: {
+    //         innc:99
+    //     },
+    //     methods: {
+    //         get() {
+    //             this.innc++;
+    //         }
+    //     },
+    //     mounted() {
+    //         setInterval(this.get, 1000);
+    //     }
+    // })
+    async function kkk(){
+        let zz
+        await axios.get('http://quan.suning.com/getSysTime.do')
+            .then(function (response) {
+                zz=response.data.sysTime1.toString()
+            })
+            .catch(function(error) { console.log(error)})
+        return zz;
+    }
+    var jjj,kkk1
+    kkk().then(
+        function (response) {
+            jjj=response.toString()
+            var app = new Vue({
+                el:'.istimein',
+                data:{
+                    h1:jjj.charAt(8),
+                    h2:jjj.charAt(9),
+                    m1:jjj.charAt(10),
+                    m2:jjj.charAt(11),
+                    s1:jjj.charAt(12),
+                    s2:jjj.charAt(13)
+                },
+                methods: {
+                    gett() {
+                        this.s2++
+                        if (this.s2==10){
+                            this.s1++
+                            if (this.s1==6) {
+                                this.m2++
+                                if (this.m2==10) {
+                                    this.m1++
+                                    if (this.m1==6) {
+                                        this.h2++
+                                        if (this.h2==10) {
+                                            this.m1++
+                                            if(this.m1==24) {
+                                                this.m1==0
+                                            }
+                                            this.h2=0
+                                        }
+                                        this.m1=0
+                                    }
+                                    this.m2=0
+                                }
+                                this.s1=0
+                            }
+                            this.s2=0
+                        }
+                        // this.s2++
+                        // console.log('aa')
+                    }
+                },
+                mounted() {
+                    setInterval(this.gett, 1000);
+                }
+            })
+        }
+    )
+    //20210410172549
+</script>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3字体效果</title>
+<!--    <script src="js/jquery-3.5.1.js"></script>-->
+    <style>
+        @font-face {
+            font-family: 'Clipangle SemBd';
+            src: local('Clipangle SemiBold'), local('Clipangle-SemiBold'),
+            url('fonts/Clipangle-SemiBold.woff2') format('woff2'),
+            url('fonts/Clipangle-SemiBold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        body{
+            background-color: black;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+        }
+        .istime{
+            margin: 0 auto;
+            /*color: ;*/
+            font-size: 133px;
+            font-weight: 700;
+            height: 1.2em;
+            /*opacity: 0.4;*/
+            border-radius: 20px;
+            background-color: rgba(155,155,155,0.7);
+            width: 520px;
+            /*white-space: nowrap;*/
+        }
+        .istimein{
+            color: #e3e9de;
+            /*display: inline-block;*/
+            font-family: "Clipangle SemBd";
+            align-items: baseline;
+            /*text-align: center;*/
+            opacity: 1!important;
+            padding-left: 0.08em;
+
+        }
+        .istimein>div>font{
+            font-size: 0.7em;
+        }
+        .istimein>div>span {
+            font-size: 0.7em;
+            display: inline-block;
+            background: orange;
+            border-radius: 5px;
+            height: 10px;
+            margin-left: 0.16em;
+            align-self: center;
+        }
+    </style>
+</head>
+<body id="body" style="border: 0;margin: 0;padding: 0">
+<script>
+    document.body.style.backgroundImage="url(https://raw.githubusercontent.com/ikdataa/ik/main/bg.png)"
+</script>
+<div id="divv">
+<!--    <div><button onclick="ooo">获取网络时间</button></div>-->
+</div>
+<div class="istime">
+    <div class="istimein"></div>
+</div>
+<iframe width="100%" height="650px" frameborder="0" src="https://ikdata.speedtestcustom.com"></iframe>
+<script>
+    var xx=new Array(3)
+    // yyy=2134
+    // yyy=yyy.toString()
+    // if (yyy.indexOf("1")) {
+    //     var aaa=document.getElementsByClassName('istimein')
+    //     zzz=yyy.charAt(1) + " " + yyy.charAt(2)
+    //     aaa[0].innerHTML='<div>' + '22' + ':' + '44' + '<font>' + ':' + '</font>' + '<span>' + zzz + '</span>' + '</div>'
+    // }
+    function whatstime() {
+        var date=new Date()
+        var hh=date.getHours()
+        var mm=date.getMinutes()
+        var ss=date.getSeconds()+1
+        var aaa=document.getElementsByClassName('istimein')
+        var bbb=document.getElementsByClassName('istimeinss')
+        setInterval(function () {
+            xx[0]=ss
+            xx[1]=mm
+            xx[2]=hh
+            for (i=0;i<3;i++) {
+                xx[i]=xx[i].toString()
+                if (xx[i]<10) {
+                    xx[i]='0'+xx[i]
+                }
+            }
+            aaa[0].innerHTML='<div>' + xx[2] + ':' + xx[1] + '<font>' + ':' + '</font>' + '<span>' + xx[0] + '</span>' + '</div>'
+            ss++
+            if (ss==60) {
+                ss=0
+                mm++
+            }
+            if (mm==60) {
+                mm=0
+                hh++
+            }
+            if (hh==24) {
+                hh=0
+            }
+        },1000)
+    }
+    onload = function() {
+        // alert(hh  + ':' + mm + ':' + ss)
+        whatstime()
+    }
+</script>
+</body>
+</html>
+>>>>>>> origin/main
