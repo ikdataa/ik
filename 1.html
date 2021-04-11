@@ -13,9 +13,9 @@
 <script>
     async function kkk(){
         let zz
-        await axios.get('//worldtimeapi.org/api/timezone/Asia/Shanghai')
+        await axios.get('https://f.m.suning.com/api/ct.do')
             .then(function (response) {
-                console.log(response.data.datetime)
+                console.log(response)
                 // zz=response.data.sysTime1.toString()
             })
             .catch(function(error) { console.log(error)})
